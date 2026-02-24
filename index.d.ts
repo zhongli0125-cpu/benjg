@@ -1,83 +1,19 @@
-/**
- * Disclaimer: modules in _shims aren't intended to be imported by SDK users.
- */
-import { manual } from './manual-types';
-import * as auto from "./auto/types";
-import { type RequestOptions } from '../core';
-
-type SelectType<Manual, Auto> = unknown extends Manual ? Auto : Manual;
-
-export const kind: string;
-
-// @ts-ignore
-export type Agent = SelectType<manual.Agent, auto.Agent>;
-
-// @ts-ignore
-export const fetch: SelectType<typeof manual.fetch, typeof auto.fetch>;
-
-// @ts-ignore
-export type Request = SelectType<manual.Request, auto.Request>;
-// @ts-ignore
-export type RequestInfo = SelectType<manual.RequestInfo, auto.RequestInfo>;
-// @ts-ignore
-export type RequestInit = SelectType<manual.RequestInit, auto.RequestInit>;
-
-// @ts-ignore
-export type Response = SelectType<manual.Response, auto.Response>;
-// @ts-ignore
-export type ResponseInit = SelectType<manual.ResponseInit, auto.ResponseInit>;
-// @ts-ignore
-export type ResponseType = SelectType<manual.ResponseType, auto.ResponseType>;
-// @ts-ignore
-export type BodyInit = SelectType<manual.BodyInit, auto.BodyInit>;
-// @ts-ignore
-export type Headers = SelectType<manual.Headers, auto.Headers>;
-// @ts-ignore
-export const Headers: SelectType<typeof manual.Headers, typeof auto.Headers>;
-// @ts-ignore
-export type HeadersInit = SelectType<manual.HeadersInit, auto.HeadersInit>;
-
-// @ts-ignore
-export type BlobPropertyBag = SelectType<manual.BlobPropertyBag, auto.BlobPropertyBag>;
-// @ts-ignore
-export type FilePropertyBag = SelectType<manual.FilePropertyBag, auto.FilePropertyBag>;
-// @ts-ignore
-export type FileFromPathOptions = SelectType<manual.FileFromPathOptions, auto.FileFromPathOptions>;
-// @ts-ignore
-export type FormData = SelectType<manual.FormData, auto.FormData>;
-// @ts-ignore
-export const FormData: SelectType<typeof manual.FormData, typeof auto.FormData>;
-// @ts-ignore
-export type File = SelectType<manual.File, auto.File>;
-// @ts-ignore
-export const File: SelectType<typeof manual.File, typeof auto.File>;
-// @ts-ignore
-export type Blob = SelectType<manual.Blob, auto.Blob>;
-// @ts-ignore
-export const Blob: SelectType<typeof manual.Blob, typeof auto.Blob>;
-
-// @ts-ignore
-export type Readable = SelectType<manual.Readable, auto.Readable>;
-// @ts-ignore
-export type FsReadStream = SelectType<manual.FsReadStream, auto.FsReadStream>;
-// @ts-ignore
-export type ReadableStream = SelectType<manual.ReadableStream, auto.ReadableStream>;
-// @ts-ignore
-export const ReadableStream: SelectType<typeof manual.ReadableStream, typeof auto.ReadableStream>;
-
-export function getMultipartRequestOptions<T = Record<string, unknown>>(
-  form: FormData,
-  opts: RequestOptions<T>,
-): Promise<RequestOptions<T>>;
-
-export function getDefaultAgent(url: string): any;
-
-// @ts-ignore
-export type FileFromPathOptions = SelectType<manual.FileFromPathOptions, auto.FileFromPathOptions>;
-
-export function fileFromPath(path: string, options?: FileFromPathOptions): Promise<File>;
-export function fileFromPath(path: string, filename?: string, options?: FileFromPathOptions): Promise<File>;
-
-export function isFsReadStream(value: any): value is FsReadStream;
-
-export const init: () => void;
+export * from "./chat/index.js";
+export * from "./shared.js";
+export { Audio, type AudioModel, type AudioResponseFormat } from "./audio/audio.js";
+export { BatchesPage, Batches, type Batch, type BatchError, type BatchRequestCounts, type BatchCreateParams, type BatchListParams, } from "./batches.js";
+export { Beta } from "./beta/beta.js";
+export { Completions, type Completion, type CompletionChoice, type CompletionUsage, type CompletionCreateParams, type CompletionCreateParamsNonStreaming, type CompletionCreateParamsStreaming, } from "./completions.js";
+export { ContainerListResponsesPage, Containers, type ContainerCreateResponse, type ContainerRetrieveResponse, type ContainerListResponse, type ContainerCreateParams, type ContainerListParams, } from "./containers/containers.js";
+export { Embeddings, type CreateEmbeddingResponse, type Embedding, type EmbeddingModel, type EmbeddingCreateParams, } from "./embeddings.js";
+export { EvalListResponsesPage, Evals, type EvalCustomDataSourceConfig, type EvalStoredCompletionsDataSourceConfig, type EvalCreateResponse, type EvalRetrieveResponse, type EvalUpdateResponse, type EvalListResponse, type EvalDeleteResponse, type EvalCreateParams, type EvalUpdateParams, type EvalListParams, } from "./evals/evals.js";
+export { FileObjectsPage, Files, type FileContent, type FileDeleted, type FileObject, type FilePurpose, type FileCreateParams, type FileListParams, } from "./files.js";
+export { FineTuning } from "./fine-tuning/fine-tuning.js";
+export { Graders } from "./graders/graders.js";
+export { Images, type Image, type ImageModel, type ImagesResponse, type ImageCreateVariationParams, type ImageEditParams, type ImageGenerateParams, } from "./images.js";
+export { ModelsPage, Models, type Model, type ModelDeleted } from "./models.js";
+export { Moderations, type Moderation, type ModerationImageURLInput, type ModerationModel, type ModerationMultiModalInput, type ModerationTextInput, type ModerationCreateResponse, type ModerationCreateParams, } from "./moderations.js";
+export { Responses } from "./responses/responses.js";
+export { Uploads, type Upload, type UploadCreateParams, type UploadCompleteParams } from "./uploads/uploads.js";
+export { VectorStoresPage, VectorStoreSearchResponsesPage, VectorStores, type AutoFileChunkingStrategyParam, type FileChunkingStrategy, type FileChunkingStrategyParam, type OtherFileChunkingStrategyObject, type StaticFileChunkingStrategy, type StaticFileChunkingStrategyObject, type StaticFileChunkingStrategyObjectParam, type VectorStore, type VectorStoreDeleted, type VectorStoreSearchResponse, type VectorStoreCreateParams, type VectorStoreUpdateParams, type VectorStoreListParams, type VectorStoreSearchParams, } from "./vector-stores/vector-stores.js";
+//# sourceMappingURL=index.d.ts.map
